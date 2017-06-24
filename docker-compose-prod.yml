@@ -2,13 +2,9 @@ version: '2'
 
 services:
   angular:
-    build:
-      context: ng-client
-      dockerfile: Dockerfile-dev
+    build: ng-client
     ports:
       - '4200:4200'
-    volumes:
-     - ./ng-client:/usr/src/app
 
   express:
     build: express-server
