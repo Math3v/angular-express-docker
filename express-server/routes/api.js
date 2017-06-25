@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 const dbHost = 'mongodb://database/mean-docker';
+mongoose.Promise = Promise;
 mongoose.connect(dbHost);
 
 const userSchema = new mongoose.Schema({
@@ -16,7 +17,9 @@ const user = new User();
 user.name = 'Matej';
 user.age = 25;
 user.save((err) => {
-  console.error(`Cannot create user: ${err}`);
+  if(err) {
+    console.error(`Cannot create user: ${err}`);
+  }
 });
 
 router.get('/', (req, res) => {
