@@ -1,0 +1,10 @@
+machine:
+  node:
+    version: 6.11.0
+
+test:
+  override:
+    - cd ng-client
+    - npm i
+    - npm i -g @angular/cli
+    - ng test --single-run --progress=false
